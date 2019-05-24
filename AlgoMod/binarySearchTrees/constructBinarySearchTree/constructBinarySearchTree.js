@@ -162,12 +162,12 @@ BST.prototype.inOrder = function () {
     } else {
         let results = [];
         function inOrderTraversal(node) {
-            node.left && inOrderTraversal(node.left)
-            results.push(node.val)
-            node.right && inOrderTraversal(node.right)
+            node.left && inOrderTraversal(node.left);
+            results.push(node.val);
+            node.right && inOrderTraversal(node.right);
         }
         inOrderTraversal(this.root);
-        return results
+        return results;
     }
 }
 BST.prototype.preOrder = function () {
