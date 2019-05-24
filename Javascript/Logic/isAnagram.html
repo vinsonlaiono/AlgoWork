@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let string1 = "itsone"
+        let string2 = "soneti"
+
+        let isAnagram = function(string1, string2){
+            let str1 = string1.toLowerCase()
+            let str2 = string1.toLowerCase()
+            if(str1.length !== str2.length){return `${str1} and ${str2} are not anagrams`;}
+            let obj1 = {}
+            for(let i=0; i<str1.length; i++){
+                if(obj1[str1[i]]){
+                    obj1[str1[i]]++;
+                } else {
+                    obj1[str1[i]] = 1
+                }
+            }
+            for(let i=0; i<str2.length; i++){
+                if(obj1[str2[i]]){
+                    obj1[str2[i]]--;
+                } else {
+                    return `${str1} and ${str2} are not anagrams`;
+                }
+            }
+            return `${str1} and ${str2} are anagrams`
+        }
+
+        let oneLinerAnagram = function(str1, str2){
+            return str1.toLowerCase().split("").sort().join("") === str2.toLowerCase().split("").sort().join("") ? "Is anagram" : "Not anagram"
+        }
+
+        // console.log(isAnagram(string1, string2))
+        console.log(oneLinerAnagram(string1, string2))
+    </script>
+</body>
+</html>

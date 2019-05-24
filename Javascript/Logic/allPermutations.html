@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        function getAllPermutations(string) {
+        var results = [];
+        // if(string){
+        //     results.push(string)
+        // }
+        // if string is empty
+        if(string.length === 0){
+            return "string is empty"
+        }
+        // check if string length is only 1
+        if (string.length === 1) {
+            results.push(string);
+            return results;
+        }
+        // Iterate through the whole string
+        // Starting from the beginner to length of string
+        for (var i = 0; i < string.length; i++) {
+            // Store first character of string in variable
+            var firstChar = string[i];
+            // console.log("FirstChar: ",firstChar)
+            var charsLeft = string.substring(0, i) + string.substring(i + 1);
+            // console.log("Charsleft "+charsLeft)
+            var innerPermutations = getAllPermutations(charsLeft);
+            for (var j = 0; j < innerPermutations.length; j++) {
+            results.push(firstChar + innerPermutations[j]);
+            }
+            // console.log("Results: " + results)
+        }
+        return results;
+        }
+        console.log(getAllPermutations("abc"))
+        // console.log(getAllPermutations("ab"))
+        // console.log(getAllPermutations("a"))
+        // console.log(getAllPermutations(""))
+
+    </script>    
+</body>
+</html>

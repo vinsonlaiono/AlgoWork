@@ -1,0 +1,41 @@
+<script>
+    let dll = function(){
+        this.head = null
+    }
+    let node = function (value) {
+        this.val = value;
+        this.next = null;
+        this.prev = null;
+    }
+    dll.prototype.addBack = function(value) {
+        let newNode = new node(value);
+        if(!this.head){
+            this.head = newNode;
+        } else {
+            let runner = this.head;
+            while(runner.next){
+                runner = runner.next;
+            }
+            runner.next = newNode;
+            newNode.prev = runner;
+        }
+    }
+    dll.prototype.remove = function(value){
+        let runner = this.head;
+        while(runner.next.val != value){
+            runner = runner.next;
+        }
+        let temp = runner.next.next;
+        runner.next = runner.next.next;
+        temp.prev = runner;
+    }
+    let myDll = new dll();
+    myDll.addBack(1)
+    myDll.addBack(2)
+    myDll.addBack(3)
+    myDll.addBack(4)
+    myDll.addBack(5)
+    myDll.remove(3)
+    console.log(myDll)
+
+</script>

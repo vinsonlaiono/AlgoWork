@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        arr = [1,2,3,4,5,6,7,8,9,10]
+        function rotate(arr, shiftby){
+            console.log("Original Array", arr)
+
+        // Edgecase if shiftby is less than 0
+        // Does not check if shiftby number is a really big negative number
+        if (shiftby < 0){
+            // Add the length of the array to shiftby
+            shiftby += arr.length
+        }
+        // // Edgecase if shiftby is the same as the length of the array
+        else if (shiftby == arr.length){
+            return console.log('edgecase: ', arr)
+        }
+        // //  Edgecase if shiftby is a multiple of arr.length
+        else if(shiftby % arr.length === 0){
+            console.log('modulo: ', arr)
+            shiftby = shiftby % arr.length;
+        }
+        // Extend the lenght of the array by the value of shiftby
+        arr.length = arr.length + shiftby;
+        for(var i = arr.length-1-shiftby; i >= 0 ; i--){
+            // Shift the whole array to the right the amount of spaces as the shiftby number
+            arr[i +shiftby] = arr[i];
+            console.log("Changing array: ",arr);
+        }
+        console.log(arr)
+        // Store values of the last number of the array and move the front of the array by 
+        // poppin them and inserting them at the index starting at the index of the value of the shiftby
+        for(var j = shiftby-1; j >= 0; j--){
+            arr[j] = arr.pop();
+        }
+        console.log('no edgecase: ', arr)
+        return arr
+        
+        }
+        rotate(arr, 3 )
+    
+    </script>
+</body>
+</html>

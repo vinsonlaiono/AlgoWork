@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DLL</title>
+</head>
+<body>
+    <script>
+    // Queue object creator
+        function Queue(){
+            this.head = null;
+        }
+        // Doubly linked list node
+        function DLNode(value){
+            this.val = value;
+            this.prev = null;
+            this.next = null;
+        }
+         // Create doubly linked list
+         var myDLList = new Queue();
+
+         // Add a node to the end of the DLList
+        function addDLNode(list, value){
+            var newNode = new DLNode(value);
+            if(!list.head){
+                list.head = newNode;
+            } else{
+                var runner = list.head;
+                while(runner.next){
+                    runner = runner.next;
+                }
+                newNode.prev = runner;
+                runner.next = newNode;
+            }
+            return list;
+        }
+        function display(list){
+            var runner = list.head
+            var dll = "head => "
+            while(runner){
+                dll += runner.val + " <=> "
+                runner = runner.next;
+            }
+            dll += "null"
+            return dll;
+        }
+        function reverse(list) {
+            if(!list.head){
+                return list;
+            } else {
+                var prev = null;
+                var curr = list.head;
+                while(curr){
+                    // set runner to currents next node
+                    let runner = curr.next;
+                    // Set currents next node to prev node
+                    curr.next = prev;
+                    // Set currents previouse to runner
+                    curr.prev = runner;
+                    // Move pointers along
+                    // Set prev to curr and current to runner
+                    prev = curr;
+                    curr = runner;
+                }
+                list.head = prev;
+                return list;
+            }
+        }
+
+        function remove(list, value){
+            if(!list.head){
+                return "List is empty";
+            } else{
+                var runner = list.head;
+                while(runner){
+                    if(runner.val === value){
+                        runner.prev.next = runner.next;
+                    }
+                    runner = runner.next;
+                }
+                return value + " has been removed"
+            }
+        } 
+
+        addDLNode(myDLList, 1);
+        addDLNode(myDLList, 2);
+        addDLNode(myDLList, 3);
+        addDLNode(myDLList, 4);
+        addDLNode(myDLList, 5);
+        
+        console.log(display(myDLList))
+        console.log(remove(myDLList, 3))
+        console.log(display(myDLList))
+        
+        addDLNode(myDLList, 3);
+        addDLNode(myDLList, 6);
+        addDLNode(myDLList, 7);
+        addDLNode(myDLList, 8);
+        addDLNode(myDLList, 9);
+        addDLNode(myDLList, 10);
+        
+        console.log(display(myDLList))
+        reverse(myDLList)
+        console.log(display(myDLList))
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Create List Class
+        let SLL = function(){
+            this.head = null;
+            this.tail = null;
+        }    
+        // Create Node Class
+        let node = function(value){
+            this.val = value;
+            this.next = null;
+        }
+        // Create Add method
+        SLL.prototype.add = function(value){
+            let newNode = new node(value);
+            if(!this.head){
+                this.head = newNode;
+            } else {
+                let runner = this.head;
+                while(runner.next){
+                    runner = runner.next;
+                }
+                runner.next = newNode;
+                this.tail = newNode;
+            }
+
+            console.log("Added node "+value)
+        }
+        SLL.prototype.addAtTail = function(value){
+            let newNode = new node(value);
+            let temp = this.tail;
+            temp.next = newNode;
+            this.tail = newNode;
+        }
+        SLL.prototype.addAtHead = function(value){
+            let newNode = new node(value);
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        SLL.prototype.kthNode = function(index){
+            if(!this.head){
+                return -1;
+            } else {
+                let runner = this.head;
+                let count = 0;
+                while(count <= index){
+                    runner = runner.next;
+                    count++;
+                }
+                return runner;
+            }
+        }
+        // move node with the max value to the end of the list
+        // Iterate through the list while keeping track of the max node
+        // Also move the prev node to set it to next.next
+        SLL.prototype.moveMax = () => {
+            if(!this.head){
+                return -1
+            } else {
+                let prev = null
+                let curr = this.head
+                let max = 0
+                while(curr){
+                    if(curr.val > max){
+                        max = runner
+                        runner = runner.next
+                        console.log(runner.val)
+                        console.log(curr.val)
+                    } else {
+                        runner = runner.next
+                    }
+                }
+            }
+        }
+        // Rotate the list by one moving that first node to the end
+        SLL.prototype.rotate = function() {
+            var runner = this.head;
+            while(runner.next != null){
+                runner = runner.next;
+            }
+            runner.next = this.head;
+            this.head = this.head.next;
+            runner.next.next = null;
+        }
+        SLL.prototype.printVals = function() {
+            var runner = this.head;
+            console.log(runner.next.val)
+        }
+
+        let mySll = new SLL();
+        mySll.add(1);
+        mySll.add(2);
+        mySll.add(3);
+        mySll.add(4);
+        mySll.add(5);
+        mySll.add(6);
+        mySll.add(7);
+        mySll.add(8);
+        // sll.addAtTail(4);
+        // sll.addAtTail(5);
+        // sll.addAtTail(6);
+        // sll.addAtTail(7);
+        // sll.addAtHead(0);
+        // console.log(sll)
+        // console.log("Remove node at index 2: ", sll.kthNode(2));
+        // mySll.moveMax();
+        // sll.rotate();
+        mySll.printVals();
+
+    </script>    
+</body>
+</html>

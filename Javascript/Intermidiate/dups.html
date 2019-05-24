@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // build permutations
+        let allAnagrams = function(word, anagram="", anagrams = []){
+            if(!word){
+                anagrams.push(anagram)
+                return
+            }
+            for(let i=0; i< word.length; i++){
+                anagram += word[i];
+                allAnagrams(word.slice(0,i) + word.slice(i + 1), anagram, anagrams)
+                anagram = anagram.slice(0, anagram.length -1)
+            }
+            return anagrams;
+        }    
+        console.log(allAnagrams("ABC"))
+    </script>
+</body>
+</html>

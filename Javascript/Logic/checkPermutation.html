@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        // Create a function that checks if the two given strings
+        // Are permutaions of each other
+        var string1 = "baabd"
+        var string2 = "bbaad"
+
+        let checkPerm = (str1, str2) => {
+            if(str1.length !== str2.length){
+                return false;
+            } else {
+                hash = {};
+                for(var i = 0; i < str1.length; i++){
+                    if(hash[str1[i]]){
+                        hash[str1[i]]++;
+                    } else{
+                        hash[str1[i]] = 1
+                    }
+                }
+                for(var j = 0; j < str2.length; j++){
+                    if(hash[str2[j]]){
+                        hash[str2[j]]--;
+                    } else{
+                        return false
+                    }
+                }
+                return true;
+            }
+        }
+        console.log(
+            checkPerm(string1, string2),
+            checkPerm("asdf", "fdsa"),
+            checkPerm("aiono", "vinson"),
+            checkPerm("carrace", "racecar"),
+            )
+    </script>    
+</body>
+</html>

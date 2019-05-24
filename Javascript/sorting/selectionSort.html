@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let selectionSort = (arr) => {
+            console.log(arr)
+
+            for(var i = 0; i < arr.length; i++){
+                var min = i;
+                for(var j = 1; j < arr.length; j++){
+                    if(arr[j] <= arr[i]){
+                        // console.log("This is min: "+min)
+                        min = j;
+                    }
+                }
+                if(min !== i){
+                    swap(arr, i, min)
+                }
+            }
+            return ""+arr;
+        }
+        let swap = (myArr, ind1, ind2) => {
+            
+            let temp = myArr[ind1];
+            console.log("Swap " + myArr[ind1] + " with " + myArr[ind2] )
+            myArr[ind1] = myArr[ind2];
+            myArr[ind2] = temp;
+        }
+        console.log(selectionSort([9,8,7,6,5,4,3,2,1]))
+        console.log(selectionSort([98,43,65,21,87,54,34,79]))
+    </script>
+</body>
+</html>

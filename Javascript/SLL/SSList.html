@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+    
+<body>
+     <script>
+        // create a singly linked list
+        let SLL = function(){
+            this.head = null;
+        }
+        let node = function(value){
+            this.val = value;
+            this.next = null;
+        }
+        SLL.prototype.addBack = function(value){
+            let newNode = new node(value);
+            if(!this.head){
+                this.head = newNode;
+            } else {
+                let runner = this.head;
+                while(runner.next){
+                    runner = runner.next;
+                }
+                runner.next = newNode;
+            }
+        }
+        SLL.prototype.addFront = function(value){
+            let newNode = new node(value);
+            let temp = this.head;
+            newNode.next = temp;
+            this.head = newNode;
+        }
+        SLL.prototype.printAllValues = function() {
+            let runner = this.head;
+            let output = "head => "
+            while(runner){
+                output += runner.val+ " => ";
+                runner = runner.next;
+            }
+            output += "Null"
+            return output;
+        }
+        SLL.prototype.insertBefore = function(nextVal, value){
+            let newNode = new node(value);
+            let runner = this.head;
+            while(runner.next.val != nextVal){
+                runner = runner.next;
+            }
+            let temp = runner.next;
+            newNode.next = temp;
+            runner.next = newNode;
+        }
+        SLL.prototype.insertAfter = function(preVal, value){
+            let newNode = new node(value);
+            let runner = this.head;
+            while(runner.val != preVal){
+                runner = runner.next;
+            }
+            let temp = runner.next;
+            newNode.next = temp;
+            runner.next = newNode;
+        }
+        SLL.prototype.remove = function(value){
+            let runner = this.head;
+            while(runner.next.val != value){
+                runner = runner.next;
+            }
+            runner.next = runner.next.next
+        }
+        SLL.prototype.reverse = function(){
+            if(!this.head){
+                return
+            } else {
+                let prev = null;
+                let curr = this.head;
+                while(curr){
+                    let runner = curr.next;
+
+                    curr.next = prev;
+                    prev = curr;
+                    curr = runner
+                }
+                this.head = prev;
+            }
+        }
+        
+        let myList = new SLL();
+        myList.addBack(1);
+        myList.addBack(2);
+        myList.addBack(3);
+        myList.addBack(4);
+        myList.addBack(5);
+        myList.addFront(0);
+        myList.addBack(7);
+        myList.insertBefore(7,6);
+        myList.insertAfter(7,8);
+        myList.remove(5);
+        myList.reverse();
+        console.log(myList);
+        console.log(myList.printAllValues());
+     </script>
+</body>
+</html>

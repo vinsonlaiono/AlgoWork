@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<body>
+    <script>
+        // given an array of integers and a target average, determine the 
+        // of the value that should be removed in order to reach the target 
+        // average and return the index of that value.
+        // var arr = [1,2,3,4,5,6];
+        var findAvgInd = (arr, target) => {
+            for (let i = 0; i < arr.length; i++) {
+                let num = 0;
+                for(var j = 0; j < arr.length; j++)
+                    num += arr[j];
+                let avg = (num - arr[i])/arr.length
+                if(avg === target)
+                    return `Remove value ${arr[i]} at index ${i}`
+            }
+        }
+        // console.log(findAvgInd(arr, 3))
+
+        // Faster method without nested for loop
+        let arr = [1,2,3,4,5,6]
+        let avg = function(arr, target){
+            let sum = arr.reduce((acc, value) => acc + value)
+            for(let i=0; i<arr.length; i++){
+                let avg = (sum - arr[i]) / arr.length-1
+                if(avg === target){
+                    return "Remove index at "+i;
+                }
+            }
+            return "Does not exist";
+        }
+        console.log(avg(arr, 2))
+    </script>
+</body>
+</html>

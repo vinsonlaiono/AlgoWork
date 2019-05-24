@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var twoSum = function(nums, target) {
+            var start = 0;
+            var end = nums.length-1
+            var number = []
+            
+            while(start !== end){ 
+                if(nums[start] + nums[end] > target){
+                    end--;
+                } else if(nums[start] + nums[end] < target){
+                    start++;
+                } else if(nums[start] + nums[end] === target){
+                    number.push(start, end)
+                    return number;
+                }
+            }
+        };
+    console.log(twoSum([2,5,5,7,7], 12))
+    </script>
+</body>
+</html>

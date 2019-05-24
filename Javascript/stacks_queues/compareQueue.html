@@ -1,0 +1,75 @@
+<html>
+<script>
+    function SLNode(value) {
+        this.val = value;
+        this.next = null;
+    }
+    function SLQueue() {
+        this.head = null; // Front of the list
+        this.tail = null; // Back of the list
+    }
+    // Create the nodes
+    const node1 = new SLNode(1);
+    const node2 = new SLNode(2);
+    const node3 = new SLNode(3);
+    const node4 = new SLNode(4);
+    const node5 = new SLNode(5);
+     // Create List
+    const queue1 = new SLQueue();
+    // Connect nodes
+    node1.next = node2;
+    node2.next = node3;
+    node3.next = node4;
+    node4.next = node5;
+    // Assign head and tail to first and last node
+    queue1.head = node1;
+    queue1.tail = node5;
+    // Create nodes for second list
+    const secNode1 = new SLNode(1);
+    const secNode2 = new SLNode(2);
+    const secNode3 = new SLNode(3);
+    const secNode4 = new SLNode(4);
+    const secNode5 = new SLNode(6);
+    // Create second Queue
+    const queue2 = new SLQueue();
+    // Conect nodes
+    secNode1.next = secNode2;
+    secNode2.next = secNode3;
+    secNode3.next = secNode4;
+    secNode4.next = secNode5;
+    // Assign head and tail to first and last node
+    queue2.head = secNode1;
+    queue2.tail = secNode4;
+
+    console.log(queue1)
+    console.log(queue2)
+
+    function compareQue(que1, que2) {
+        // Check if que1 and que2 exits
+        if(que1 && que2){
+            // Create runners for both queues
+            var runner1 = que1.head;
+            var runner2 = que2.head;
+            // Check while runners exits 
+            while (runner1 && runner2) {
+                // Check if the values do not match return false
+                if (runner1.val !== runner2.val) {
+                    return false;
+                }
+                // otherwise move along through the queues
+                runner1 = runner1.next
+                runner2 = runner2.next
+            }
+            // Once at the end of the queues the last nodes should move into
+            // Null value if the queues are the same length
+            // Return the boolean result
+            return runner1 === runner2;
+        }
+        // return false;
+    }
+    // call compare queue function and return true or false results
+    console.log(compareQue(queue1, queue2));
+
+</script>
+
+</html>

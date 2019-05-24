@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var string = "(({(})[}]{(])["
+        let parensBalanced = (str) => {
+            console.log(str)
+            var freqHash = {}
+            
+            for(var i = 0; i < str.length; i++){
+                if(str[i] === "(" || str[i] === "{" || str[i] === "["){
+                    if(freqHash[str[i]])
+                        freqHash[str[i]]++
+                    else 
+                        freqHash[str[i]] = 1
+                }   
+                if(str[i] === ")" || str[i] === "}" || str[i] === "]"){
+                    if(str[i] === ")")
+                        freqHash["("]--;
+                    if(str[i] === "}")
+                        freqHash["{"]--;
+                    if(str[i] === "]")
+                        freqHash["["]--;
+                }
+            }
+            return freqHash["("] ||  freqHash["{"] ||  freqHash["["] > 0 ? "is not balanced" : "is balanced"
+        }
+        console.log(parensBalanced(string))
+        console.log(parensBalanced("({[)}]"))
+    </script>
+</body>
+</html>

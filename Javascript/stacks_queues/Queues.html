@@ -1,0 +1,48 @@
+<html>
+<script>
+
+    function SLNode(value){
+        this.val = value;
+        this.next = null;
+    }
+    function SLQueue(){
+        this.head = null; // Front of the list
+        this.tail = null; // Back of the list
+        this.enqueue = function(val){ // Enqueue a new node the end of the list
+            // create a new node with the value passed in 
+            // check if tail exist
+            // if not add new node to queue
+            let newNode = new SLNode(val)
+
+            if(!this.tail){
+                this.tail = newNode;
+                this.head = newNode;
+                return this;
+            }
+            this.tail.next = newNode;
+            this.tail = newNode;
+            return this;
+        }
+    }
+    // Create the  queue
+    const queue = new SLQueue();
+    // Create the nodes
+    const node1 = new SLNode(1);
+    const node2 = new SLNode(2);
+    const node3 = new SLNode(3);
+    const node4 = new SLNode(4);
+    // Link all the nodes together
+    node1.next = node2;
+    node2.next = node3;
+    node3.next = node4;
+    // Assign the head and tail
+    queue.head = node1;
+    queue.tail = node4;
+
+    console.log(queue)
+    queue.enqueue(45)
+    queue.enqueue(99)
+
+    // Enqueue
+</script>
+</html>

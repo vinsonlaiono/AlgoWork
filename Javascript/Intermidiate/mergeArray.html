@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a = [1,5,3,5,6,7,86,5,4]
+        const b = [7,4,5,5,7,8,9,90,8,7,5,4]
+
+        a.sort(function(a,b){return a-b})
+        b.sort()
+        
+        // console.log(a.concat(b).sort((a,b) => a > b))
+        var pointA = 0;
+        var pointB = 0;
+
+        var c = [];
+        var len = Math.max(a.length, b.length)
+        // console.log(len)
+        while(pointB < len){
+            if(a[pointA] <= b[pointB]){
+                c.push(a[pointA]);
+                pointA++;
+            } else {
+                c.push(b[pointB]);
+                pointB++;
+            }
+        }
+        console.log(c)
+    </script>
+</body>
+</html>

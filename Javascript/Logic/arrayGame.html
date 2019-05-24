@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [3,4,6,6,3];
+        console.log("Original array: ", arr)
+
+        function arrGame(arr){
+            function findMaxIndex (arr){
+                var max = arr[0]
+                var index = 0
+                for(var i =1; i < arr.length; i++){
+                    if(arr[i] > max){
+                        max = arr[i];
+                        index = i
+                    }
+                }
+                return index;
+            }
+            var ind = findMaxIndex(arr)
+            console.log(ind)
+
+            function incrementIndexes(arr, ind){
+                for(var i = 0; i <  arr.length; i++){
+                    if(i !== ind){
+                        arr[i]++;
+                    }
+                    if(arr[0] == arr[i]){
+                        match == true;
+                    }
+                }
+                console.log(arr)
+                return arr;
+                
+            }
+            var inc = incrementIndexes(arr, ind)
+
+            var match = false;
+            while(match == false){
+
+            }
+        }
+        arrGame(arr)
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var names = [
+            {uuid: 1, name: "John"},
+            {uuid: 2, name: "baker"},
+            {uuid: 3, name: "Marvin"},
+            {uuid: 4, name: "Sally"},
+        ]
+        var positions = [
+            {uuid: 2, position: "runner"},
+            {uuid: 3, position: "baker"},
+            {uuid: 4, position: "writer"},
+            {uuid: 5, position: "coder"},
+        ]
+        // Merge the two arrays combining the key value pairs in each object
+
+        /*output:
+        [
+            {uuid: 1, name: "John", position: "null"},
+            {uuid: 2, name: "Baker", position: "runner"},
+            {uuid: 3, name: "Marvin", position: "baker"},},
+            {uuid: 4, name: "Sally", position: "writer"},
+            {uuid: 5, name: null, position: "coder"},
+        ]
+        */ 
+
+        for(let item of names){
+            console.log(item.position)
+        }
+
+
+        function mergeData(arr1, arr2){
+            var checkId = new Set();
+            var newList = [];
+
+            var i= 0;
+            var k= 0;
+            for(let item of arr1){
+                if(checkId.has(item.uuid) == false){
+                    newList.push(arr1[i]);
+                    i++
+                } else {
+                    console.log("This is a no go!")
+                }
+            }
+            for(let item of arr2){
+                if(checkId.has(item.uuid) == false){
+                    newList.push(arr2[k]);
+                    k++
+                }
+            }
+            console.log(newList)
+
+
+
+
+        }
+        mergeData(names, positions)
+        
+    </script>
+</body>
+</html>

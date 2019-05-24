@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Heaps</title>
+</head>
+<body>
+    <script>
+        
+        function minHeap(){
+            this.root = null;
+            this.createNode = function(val){
+                this.value = val
+                this.child1 = null;
+                this.child2 = null;
+            }
+        }
+
+        minHeap.prototype.insert = function (arr){
+            console.log("Original Array: ",arr)
+            helper(arr);
+            this.root = arr[1]
+            console.log("Root: ", this.root)
+
+            // var newNode = new createNode()
+
+            this.createNode(arr[2])
+            
+            console.log("Shifted Array: ", arr)
+            console.log(this)
+
+            function helper(arr){
+                arr.length = arr.length+1;
+                for(var i = arr.length-1; i > 0; i--){
+                    arr[i] = arr[i-1]
+                }
+                arr[i] = undefined;
+                return arr
+            }
+        }
+
+        var myHeap = new minHeap();
+        
+        var arr = [90,5,3,6,8,5,23,32,54,45]
+
+        myHeap.insert(arr)
+        
+        
+        
+
+        
+     
+
+        
+
+
+    </script>
+</body>
+</html>

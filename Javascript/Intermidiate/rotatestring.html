@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function rotate(Str, num){
+        if(num<= 0){
+            return Str
+        }
+        num--;
+        var Str = Str.substring(Str.length-1) + Str.substring(0, Str.length-1)
+        rotate(Str, num);
+    }
+
+    console.log(rotate("Happiness", 3))
+    
+    
+    </script>
+</body>
+</html>

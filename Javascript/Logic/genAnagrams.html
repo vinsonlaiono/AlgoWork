@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+
+        var dict = new Set()
+        dict.add('abc').add('bac').add('cab')
+        var genAnagrams = (word, anagram = '', anagrams = []) => {
+            if(!word || word && anagram !== ""){
+                if(dict.has(anagram)){
+                    anagrams.push(anagram);
+                    return;
+                }
+            }
+            for(var i = 0; i < word.length; i++){
+                anagram += word[i];
+                genAnagrams(word.slice(0, i) + word.slice(i + 1), anagram, anagrams)
+                anagram = anagram.slice(0, anagram.length -1)
+            }
+            // console.log("Count: ",count)
+            return [...new Set(anagrams)]
+        }
+        console.log(genAnagrams("abc"))
+            
+    </script>    
+</body>
+</html>

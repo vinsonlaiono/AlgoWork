@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SLL</title>
+</head>
+<body>
+    <script>
+        // Queue object creator
+        function Queue(){
+            this.head = null;
+        }
+        // Node Object creator
+        function Node(value, next){
+            this.val = value;
+            this.next = next;
+        }
+        // Doubly linked list node
+        function DLNode(value){
+            this.val = value;
+            this.prev = null;
+            this.next = null;
+        }
+        // Create a list
+        var mylist = new Queue();
+        // Create doubly linked list
+        var myDLList = new Queue();
+        // Add a node to the end of the list
+        function addNode(list, value){
+            // Check if there is node in the list to begin with
+            if(!list.head){
+                // If the list is empty add the new node
+                list.head = new Node(value, null)
+            }
+            else{
+                // Declare a runner to iterate through the list
+                var runner = list.head;
+                // While the runners next is not null
+                while(runner.next){
+                    // Set runner to runners next
+                    runner = runner.next;
+                }
+                // Once at the end of the list, add new node
+                runner.next = new Node(value) 
+            }
+            return list;
+        }
+
+        addNode(mylist, 99);
+        addNode(mylist, 98);
+        addNode(mylist, 97);
+        addNode(mylist, 96);
+        addNode(mylist, 95);
+        addNode(mylist, 94);
+        addNode(mylist, 100);
+
+        // Add a node to the front of the list
+        function addFront(list, value){
+            newNode = new Node(value, list.head)
+            list.head = newNode;
+        }
+        addFront(mylist, 50)
+        // This function returns the length of the list
+        function listCount(list){
+            var count = 0;
+            var runner = list.head;
+            while(runner){
+                runner = runner.next;
+                count++
+            }
+            return count
+        }
+        
+        // This function displays a string containing all the values of the list.
+        function display(list){
+            var runner = list.head;
+            var  str = '';
+            while(runner){
+                str += runner.val+ ", ";
+                runner = runner.next
+            }
+            return str;
+        }
+        // Returns the sum of the all the values of the list
+        function sum(list){
+            var runner = list.head;
+            var sum = 0;
+            while(runner){
+                sum += runner.val
+                runner = runner.next
+            }
+            return sum;
+        }
+        // Returns the average of all the values of the list
+        function average(list){
+            var runner = list.head;
+            var sum = 0;
+            var count = 0;
+            while(runner){
+                sum += runner.val
+                count++
+                runner = runner.next
+            }
+            return sum/count;
+        }
+        // Returns the minimum value of the list
+        function min(list){
+            var runner = list.head;
+            var min = runner.val;
+            while(runner){
+                if(runner.val < min){
+                    min = runner.val
+                }
+                runner = runner.next
+            }
+            return min;
+        }
+        // Returms the Maximun value of the list
+        function max(list){
+            var runner = list.head;
+            var max = runner.val;
+            while(runner){
+                if(runner.val > max)
+                    max = runner.val
+                runner = runner.next
+            }
+            return max;
+        }
+        // remove a node at a specific position
+        function remove(list, position){
+            var runner =  list.head;
+            var i = 0;
+            while(i !== position - 2){
+                runner = runner.next;
+                i++;
+            }
+            var removed = runner.next.val
+            runner.next = runner.next.next;
+            return removed;
+        }
+        // return middle node
+        function middleNode(list){
+            var runner = list.head;
+            var count = 0;
+            while(runner.next){
+                count++
+                runner = runner.next
+            }
+            runner = list.head;
+            var i = 0;
+            var position = (count / 2)
+            if(count % 2 == 0){
+                while(i !== position + 1){
+                    runner = runner.next;
+                    i++;
+                }
+            } else {
+                while(i !== position){
+                    runner = runner.next;
+                    i++;
+                }
+            }
+            // console.log(runner.val)
+            return runner
+
+        }
+
+
+        // console.log("My SL list: ", mylist)
+        // console.log("List Length: " + listCount(mylist))
+        console.log("List Values: " + display(mylist))
+        // console.log("List Sum: " + sum(mylist))
+        // console.log("List Average: " + average(mylist))
+        // console.log("List Min: " + min(mylist))
+        // console.log("List Max: " + max(mylist))
+
+        console.log("Remove node: " + remove(mylist, 6))
+        console.log("List Values: " + display(mylist))
+        // console.log("Middle Node: ", middleNode(mylist))
+    
+    </script>
+</body>
+</html>

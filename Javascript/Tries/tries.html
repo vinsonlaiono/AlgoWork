@@ -1,0 +1,52 @@
+<script>
+    console.log("This is the node from inde.js")
+function Node() {
+    this.children = {};
+    this.isCompleted = false;
+}
+
+function Trie() {
+    this.root = new Node();
+}
+
+Trie.prototype.insertWord = function (word) {
+    // Get the root node
+    var runner = this.root;
+    console.log("Current Node: ", runner)
+
+    // Iterates over every character in the word 
+    for (let i = 0; i < word.length; i++) {
+        // Current letter/character at the iteration
+        currentLetter = word[i];
+        console.log(currentLetter);
+
+        // Check to see if the Character exist in the children
+        let child = runner.children[currentLetter]
+
+        // If not... add to the children list
+        if (child == undefined) {
+            // Create empty node for current character
+            child = new Node;
+            // Add that empty node to the current Nodes children
+            runner.children[currentLetter] = child;
+        } 
+        // Move the runner
+        runner = child;
+    }
+    // Once the word is complete set isWord to true
+    runner.isCompleted = true;
+}
+
+trie = new Trie();
+
+trie.insertWord("car");
+trie.insertWord("card");
+trie.insertWord("chip");
+trie.insertWord("trie");
+trie.insertWord("try");
+trie.insertWord('vinson')
+
+console.table(trie.root.children)
+
+
+</script>

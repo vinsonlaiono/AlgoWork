@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var sentence = "Hello there my name is Jonny."
+        // reverse a sentence not in place
+        let reverseSentence = function (sent) {
+            var mySentence = sent.split(" ")
+            var myString = ""
+            console.log(sent)
+            var count = mySentence.length
+            while(count > 0){
+                myString += mySentence.pop() + " "
+                count--
+            }
+
+            return myString
+        }
+        console.log(reverseSentence(sentence))
+    </script>
+</body>
+</html>

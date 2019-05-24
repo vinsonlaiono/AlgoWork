@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // given an array, find the first two intergers that add up to the target number
+        var myArr = [11,12,13,14,15,16,17,18,19,20]
+
+        let firstTwo = function (arr, target) {
+            var mySet = new Set()
+            for(var i = 0; i < arr.length; i++){
+                let num = target - arr[i];
+                if(mySet.has(num)){
+                    return `The two numbers are ${num} and ${arr[i]} equals ${target}`
+                } else {mySet.add(arr[i])}
+            }
+            return `There are no two numbers that add up to ${target}.`
+        }
+
+        console.log(firstTwo(myArr, 35))
+        console.log(firstTwo(myArr, 42))
+        console.log(firstTwo(myArr, 30))
+        console.log(firstTwo(myArr, 20))
+    </script>
+</body>
+</html>

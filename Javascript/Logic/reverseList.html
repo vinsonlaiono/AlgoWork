@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function reverse(arr){
+            for(var i = 0; i < arr.length; i++){
+                // console.log("i: " + arr[i])
+                var temp = arr[i];
+                // console.log("Temp: " + arr[i])
+                arr[i] = arr[arr.length-1-i];
+                // console.log("arr[i]: ", arr[i])
+                arr[arr.length-1-i] = temp;
+                // console.log("arr[arr.length-1-i]: " + arr[arr.length-1-i])
+            }
+            console.dir(arr.sort().reverse())
+            // console.dir(arr.sort())
+        }
+        let arr = ['red', 'blue','apple'];
+        reverse(arr);
+    </script>
+</body>
+</html>

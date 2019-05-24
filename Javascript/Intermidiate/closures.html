@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Simple counter using closures
+
+        //Declare a variable in a 
+        let counter = (function (){
+            count = 1;
+            return function(){
+                return count++;
+            }
+        })();
+       console.log(counter())
+       console.log(counter())
+       console.log(counter())
+       console.log(counter())
+       console.log(counter())
+       console.log(counter())
+       console.log(counter())
+       console.log(counter())
+       console.log(counter())
+       console.log(counter())
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Given an array return the indecies of the the two intergers that add up to target
+        var myArr = [1,9,3,7,4,6,5]
+        let returnIndex = function(nums, target){
+            var myMap = new Map();
+            console.log(myMap)
+            for(var i =0; i< nums.length; i++){
+                let num = target - nums[i];
+                if(myMap.has(num)){
+                    return [myMap.get(num), i]
+                } else {
+                    myMap.set(nums[i], i)
+                }
+            }
+        }
+        console.log(returnIndex(myArr, 11))
+    </script>
+</body>
+</html>

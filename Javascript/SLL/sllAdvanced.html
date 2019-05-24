@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SLL Advanced</title>
+</head>
+<body>
+    <script>
+        function Queue(){
+            this.head = null;
+        }
+        // Node Object creator
+        function Node(value, next){
+            this.val = value;
+            this.next = next;
+        }
+        // Create a list
+        var mylist = new Queue();
+
+        // Add a node to the end of the list
+        function addNode(list, value){
+            // Check if there is node in the list to begin with
+            if(!list.head){
+                // If the list is empty add the new node
+                list.head = new Node(value, null)
+            }
+            else{
+                // Declare a runner to iterate through the list
+                var runner = list.head;
+                // While the runners next is not null
+                while(runner.next){
+                    // Set runner to runners next
+                    runner = runner.next;
+                }
+                // Once at the end of the list, add new node
+                runner.next = new Node(value) 
+            }
+            return list;
+        }
+        // This function displays a string containing all the values of the list.
+        function display(list){
+            var runner = list.head;
+            var  str = '';
+            while(runner){
+                str += runner.val+ ", ";
+                runner = runner.next
+            }
+            return str;
+        }
+        
+        addNode(mylist, 15);
+        addNode(mylist, 20);
+        addNode(mylist, 25);
+        addNode(mylist, 30);
+        addNode(mylist, 10);
+
+        // Returns the last node value in the list
+        function displayLast(list){
+            var runner = list.head;
+            while(runner.next){
+                runner = runner.next;
+            }
+            var last = runner.val
+            return last
+        }
+
+        function reverse(list){
+            var prev = null;
+            var curr = list.head;
+            while (curr){
+                let runner = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = runner;
+            }
+            list.head = prev
+            return list;
+        }
+
+        function removeLast(list){
+            var current = list.head;
+            var prev;
+            while(current.next){
+                prev = current
+                current = current.next;
+            }
+            prev.next = null;
+        }
+        
+        // Moves the node with the max value to the end of the list
+        // Iterate through the list
+        // Find the max value and hold temp there
+        // Once at the end of the list, move node to the end
+
+        
+
+
+
+        console.log("List: " + display(mylist))
+        console.log("Last Node: " + displayLast(mylist))
+        // removeLast(mylist)
+        console.log(maxToLast(mylist))
+        console.log("Max to last List: ", display(maxToLast(mylist)))
+        console.log("Reverse List: ", display(reverse(mylist)))
+    
+    </script>
+</body>
+</html>
