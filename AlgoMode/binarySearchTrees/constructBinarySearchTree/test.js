@@ -36,3 +36,5 @@ console.log(tree1.findTheClosestValueInBst(29));     // logs 30
 tree1.remove(30);
 console.log("Hi")
 console.log(tree1.levelOrder());                    // [ 20, 15, 25, 10, 18, 22, 27, 5, 23, 30, 40 ]
+
+// Need to make this a test file in jasmine
