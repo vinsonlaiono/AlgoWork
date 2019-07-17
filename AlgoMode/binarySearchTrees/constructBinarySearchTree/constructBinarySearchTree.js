@@ -201,17 +201,13 @@ BST.prototype.postOrder = function () {
 BST.prototype.levelOrder = function () {
     var result = [];
     var Q = [];
-    if (this.root != null) {
+    if (this.root) {
         Q.push(this.root)
-        while (Q.length > 0) {
+        while (Q.length) {
             let node = Q.shift();
             result.push(node.val);
-            if (node.left != null) {
-                Q.push(node.left)
-            };
-            if (node.right != null) {
-                Q.push(node.right);
-            }
+            node.left && Q.push(node.left)
+            node.right && Q.push(node.right)
         }
         return result;
     } else {
@@ -227,28 +223,20 @@ BST.prototype.maxHeight = function () {
             if (node == null) return -1;
             let left = traverse(node.left);
             let right = traverse(node.right);
-            if (left > right) {
-                return left + 1;
-            } else {
-                return right + 1;
-            }
+            return left > right ? left+1 : right+1;
         }
         return traverse(this.root);
     }
 }
 BST.prototype.minHeight = function () {
     if (this.root == null) {
-        return -1;
+        return 0;
     } else {
         let traverse = function (node) {
-            if (node == null) return -1;
+            if (node == null) return 0;
             let left = traverse(node.left);
             let right = traverse(node.right);
-            if (left < right) {
-                return left + 1;
-            } else {
-                return right + 1;
-            }
+            return left < right ? left + 1 : right + 1;
         }
         return traverse(this.root);
     }
@@ -268,18 +256,27 @@ BST.prototype.validateTree = function () {
 }
 
 BST.prototype.findTheClosestValueInBst = function (target) {
-
-    let traverse = function (tree, target, closest) {
-        let node = tree
-        while (node !== null) {
-            if (Math.abs(target - closest) > Math.abs(target - node.val)) closest = node.val;
-            if (target > node.val) node = node.right;
-            else if (target < node.val) node = node.left;
-            else break;
-        }
-        return closest;
-    }
     return traverse(this.root, target, Infinity)
+}
+let traverse = function (tree, target, closest) {
+    let node = tree
+    while (node !== null) {
+        if (Math.abs(target - closest) > Math.abs(target - node.val)){
+            console.log("Target & closest: ", Math.abs(target - closest))
+            console.log("Target & node.val: ", Math.abs(target - node.val))
+            console.log("Old closest: ", closest)
+            closest = node.val;
+            console.log("New closest: ", closest)
+        } 
+        if (target > node.val){
+            node = node.right;
+        } 
+        else if (target < node.val){
+            node = node.left;
+        } 
+        else break;
+    }
+    return closest;
 }
 
 BST.prototype.BFS = function () {

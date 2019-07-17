@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function convertOperators(str){
+            var myEq = str.split("")
+            // console.log(str);
+            var leftSide = "";
+            var operator = "";
+            var rightSide = "";
+            // console.log(leftSide);
+            for(var i=0; i<myEq.length; i++){
+                var int = parseInt(myEq[i]);
+                // console.log("parse Int: ", int)
+                if(Number.isInteger(int) === true) {
+                    leftSide += myEq[i];
+                    // console.log("Left Side: ",leftSide);
+                } else if(myEq[i] == '+' || myEq[i] == '-') {
+                    operator += myEq[i];
+                    // console.log("Operator: " + operator)
+                    for(var i = i+1; i < myEq.length; i++){
+                        var int = parseInt(myEq[i]);
+                        if(Number.isInteger(int) === true) {
+                            rightSide += myEq[i];
+                            // console.log("Right Side: ", rightSide);
+                        }
+                    }
+                }
+            }
+            
+            if(operator === "+")
+                return `${leftSide} ${operator} ${rightSide} = ${parseInt(leftSide) + parseInt(rightSide)}`
+            if(operator === "-")
+                return `${leftSide} ${operator} ${rightSide} = ${parseInt(leftSide) - parseInt(rightSide)}`
+                
+        }
+        var equation = "5+0";
+        var equation2 = "123+456";
+        console.log(convertOperators(equation));
+        console.log( convertOperators(equation2));
+        
+    
+    </script>
+</body>
+</html>

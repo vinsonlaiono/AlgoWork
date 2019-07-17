@@ -1,8 +1,8 @@
 var threeNumberSum = (arr, target) => {
     arr.sort((a, b) => a - b);
-    var triplets = [];
+    let triplets = [];
     for (let i = 0; i < arr.length; i++) {
-        let left = i + 1
+        let left = i + 1;
         let right = arr.length - 1;
         while (left < right) {
             let currentSum = arr[i] + arr[left] + arr[right];
@@ -17,8 +17,7 @@ var threeNumberSum = (arr, target) => {
             }
         }
     }
-    // console.log(triplets)
-    return triplets
+    return triplets;
 }
 
 console.log(threeNumberSum([12, 3, 1, 2, -6, 5, -8, 6], 0));
