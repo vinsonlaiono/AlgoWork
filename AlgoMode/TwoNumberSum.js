@@ -1,2 +1,0 @@
-// Two Number Sum
-// Write a function that takes in a non-empty array of distinct integers and an interger respresenting a target sum. If any teo numbers in the input array sum up to the target sum, the function should return them in an array. om sorted order/ If no teo number sum up to the target sum, the function return an empty array
