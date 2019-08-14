@@ -37,7 +37,10 @@ Trie.prototype.insertWord = function (word) {
 };
 
 Trie.prototype.contains = function (word) {
-    console.log("* ======================================== *"); console.log("* ========== In Contains Method ========== *"); console.log("* ======================================== *"); console.group();
+    console.log("* ======================================== *"); 
+    console.log("* ========== In Contains Method ========== *"); 
+    console.log("* ======================================== *"); 
+    console.group();
 
     // var children = currentNode.children
     // console.log(children )
