@@ -35,37 +35,49 @@ Trie.prototype.wordValid = function(word){
         if(child === undefined) return false;
         runner = child;
     }
-    return runner.isWord === true ? true : false;
+    return runner.isWord;
 }
 Trie.prototype.prefixValid = function(word){
     let runner = this.root;
     for(let i=0; i<word.length; i++){
         let curr = word[i];
-        let child = runner.children[curr]
+        let child = runner.children[curr];
         if(child === undefined) return false;
         runner = child;
     }
-    return true;
+    return runner;
 }
 
-Trie.prototype.autoFill = function(word){
+Trie.prototype.findAllWords = function(str){
+    let startNode = this.prefixValid(str);
+    // startNode == {'c' : [Object] => {isWord:false, children: {'a': [Object]}}}
+    let queue = [startNode];
+    let runner = startNode;
+    while(queue.length > 0){
+        // pop the first out of the queue
+        let curr = queue.shift();
+        // add all the children nodes to the queue
+        for(const key in curr.children) queue.push(curr.children[key]);
 
+        let runner = curr;
+        while (!curr.isWord){
+            
+        }
+    }
 }
-
 let t = new Trie();
 t.insertWord("car")
 t.insertWord("carpet")
-t.insertWord("try")
-t.insertWord("trie")
+t.insertWord("abc")
+t.insertWord("BCA")
+
+t.findAllWords('c');
 
 console.group()
-var root = Object.keys(t.root)
-var keys = Object.keys(t.root.children)
-var cha = Object.keys(t.root.children.c)
-console.log(root)
-console.log(keys)
-console.log(t.root.children.c.children.a.children.r)
+
+console.log("Word valid: ", t.wordValid('car'));
+console.log(t);
+
 console.groupEnd();
 
-console.log(t.wordValid('ca'))
-console.log(t.prefixValid('ca'))
+// console.log("autofills: ",t.autoFill("c"));
