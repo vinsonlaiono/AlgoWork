@@ -24,14 +24,14 @@ tree2.insert(20).insert(15).insert(10).insert(18).insert(19)
 
 tree1 = {
     "Contains" : tree1.contains(22),
-    "InOrder: " : tree1.inOrder(),
     "PreOrder: " : tree1.preOrder(),
+    "InOrder: " : tree1.inOrder(),
     "PostOrder: " : tree1.postOrder(),
-    "LevelOrder: " : tree1.levelOrder(),
-    "Min_Height: " : tree1.minHeight(),
-    "Max_Height: " : tree1.maxHeight(),
-    "Validate_BST: " : tree1.validateTree(),
-    "Find_the_closest" : tree1.findTheClosestValueInBst(29),
+    // "LevelOrder: " : tree1.levelOrder(),
+    // "Min_Height: " : tree1.minHeight(),
+    // "Max_Height: " : tree1.maxHeight(),
+    // "Validate_BST: " : tree1.validateTree(),
+    // "Find_the_closest" : tree1.findTheClosestValueInBst(29),
 }
 tree2 = {
     "Max_Height" : tree2.maxHeight(),

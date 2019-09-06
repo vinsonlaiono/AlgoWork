@@ -48,35 +48,52 @@ Trie.prototype.prefixValid = function(word){
     return runner;
 }
 
-Trie.prototype.findAllWords = function(str){
-    let startNode = this.prefixValid(str);
-    // startNode == {'c' : [Object] => {isWord:false, children: {'a': [Object]}}}
-    let queue = [startNode];
-    let runner = startNode;
-    while(queue.length > 0){
-        // pop the first out of the queue
-        let curr = queue.shift();
-        // add all the children nodes to the queue
-        for(const key in curr.children) queue.push(curr.children[key]);
+Trie.prototype.printWords = function(){
+    let runner = this.root;
+    while(runner.isWord !== false){
+        let currLetter = word[i];
+        let child = runner.children[currLetter];
 
-        let runner = curr;
-        while (!curr.isWord){
-            
+        if(child === undefined){
+            console.log(child)
+            runner.children[currLetter] = child;
         }
+        runner = child;
     }
+    runner.isWord = true;
+    return this;
 }
+
+// Trie.prototype.findAllWords = function(str){
+//     let startNode = this.prefixValid(str);
+//     // startNode == {'c' : [Object] => {isWord:false, children: {'a': [Object]}}}
+//     let queue = [startNode];
+//     let runner = startNode;
+//     while(queue.length > 0){
+//         // pop the first out of the queue
+//         let curr = queue.shift();
+//         // add all the children nodes to the queue
+//         for(const key in curr.children) queue.push(curr.children[key]);
+
+//         let runner = curr;
+//         while (!curr.isWord){
+            
+//         }
+//     }
+// }
 let t = new Trie();
 t.insertWord("car")
 t.insertWord("carpet")
 t.insertWord("abc")
-t.insertWord("BCA")
+t.insertWord("bca")
 
-t.findAllWords('c');
+// t.findAllWords('c');
 
 console.group()
 
-console.log("Word valid: ", t.wordValid('car'));
+// console.log("Word valid: ", t.wordValid('car'));
 console.log(t);
+t.printWords();
 
 console.groupEnd();
 
