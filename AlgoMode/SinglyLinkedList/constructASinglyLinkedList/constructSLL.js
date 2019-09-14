@@ -12,7 +12,8 @@ class SLL{
     constructor(){
         this.head = null;
     }
-    length(){
+}
+SLL.prototype.length = function(){
         let runner = this.head;
         let count = 0;
         while(runner){
@@ -21,73 +22,102 @@ class SLL{
         };
         return count
     }
-    setHead(node){
-        if(this.head === null) this.head = node;
-        else {
-            node.next = this.head;
-            this.head = node;
-        }
+SLL.prototype.setHead = function(node){
+    if(this.head === null) this.head = node;
+    else {
+        node.next = this.head;
+        this.head = node;
     }
-    push(value){
-        let newNode = new Node(value);
-        if(this.head === null) this.setHead(newNode);
-        else {
-            let runner = this.head;
-            while(runner.next){
-                runner = runner.next;
-            }
-            runner.next = newNode;
-        }
-        return this;
-    }
-    shift(value){
-        let newNode = new Node(value);
-        if(!this.head) this.setHead(newNode);
-        else {
-            newNode.next = this.head;
-            this.setHead(newNode);
-        }
-    }
-    insertAt(value, idx){
-        let newNode = new Node(value);
-        let count = 0;
+}
+SLL.prototype.push = function(value){
+    let newNode = new Node(value);
+    if(this.head === null) this.setHead(newNode);
+    else {
         let runner = this.head;
-        while(count != idx-1){
-            count++;
+        while(runner.next){
             runner = runner.next;
         }
-        newNode.next = runner.next;
         runner.next = newNode;
-        return this
     }
-    max(){
-        let curr = -Infinity;
-        let runner = this.head;
-        while(runner){
-            curr = Math.max(curr, runner.val)
-            runner = runner.next
-        }
-        return curr
+    return this;
+}
+SLL.prototype.shift = function(value){
+    let newNode = new Node(value);
+    if(!this.head) this.setHead(newNode);
+    else {
+        newNode.next = this.head;
+        this.setHead(newNode);
     }
-    min(){
-        let curr = Infinity;
-        let runner = this.head;
-        while(runner){
-            curr = Math.min(curr, runner.val)
-            runner = runner.next
-        }
-        return curr
+}
+SLL.prototype.insertAt = function(value, idx){
+    let newNode = new Node(value);
+    let count = 0;
+    let runner = this.head;
+    while(count != idx-1){
+        count++;
+        runner = runner.next;
     }
-    average(){
-        let sum = 0;
-        let runner = this.head;
-        while(runner){
-            sum += runner.val;
-            runner = runner.next;
+    newNode.next = runner.next;
+    runner.next = newNode;
+    return this
+}
+SLL.prototype.max = function(){
+    let curr = -Infinity;
+    let runner = this.head;
+    while(runner){
+        curr = Math.max(curr, runner.val)
+        runner = runner.next
+    }
+    return curr
+}
+SLL.prototype.min = function(){
+    let curr = Infinity;
+    let runner = this.head;
+    while(runner){
+        curr = Math.min(curr, runner.val)
+        runner = runner.next
+    }
+    return curr
+}
+SLL.prototype.average = function(){
+    let sum = 0;
+    let runner = this.head;
+    while(runner){
+        sum += runner.val;
+        runner = runner.next;
+    }
+    return sum/this.length();
+}
+SLL.prototype.print = function(){
+    let runner = this.head;
+    let res = []
+    while(runner){
+        res.push(runner.val);
+        runner = runner.next;
+    }
+    return res;
+}
+
+SLL.prototype.reverse = function(){
+    if(!this.head){
+        return "Error: ID-10T Epmpty list..."
+    } else {
+        let prev = null;
+        let curr = this.head;
+        while(curr){
+            let runner = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = runner;
         }
-        return sum/this.length();
+        this.head = prev;
     }
 }
 var n = new SLL()
+var m = new SLL()
 n.push(5).push(10).push(15).push(20)
 console.log("Avg: " + n.average())
+n.reverse()
+console.log(n.print())
+console.log(m.reverse())
+
