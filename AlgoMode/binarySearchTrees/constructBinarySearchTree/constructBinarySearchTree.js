@@ -277,11 +277,32 @@ let traverse = function (tree, target, closest) {
         else break;
     }
     return closest;
+} 
+
+// check if lvl === 1
+// return the roots value
+// create a count variable to keep track of the level that we are at
+// 
+
+BST.prototype.printAtLvl = function(lvl){
+    console.log("In print at lvl" + 2)
+    let q = [this.root];
+    let count = 1
+    if(lvl === 1){
+        return q[0].val
+    } else {
+
+        while(count != lvl){
+            let curr = q.pop();
+
+
+        }
+        return `print at level ${lvl} and ${this.head}`
+    }
 }
 
 BST.prototype.BFS = function () {
     console.log("In BFS")
-
 }
 
 exports.BST = BST;
