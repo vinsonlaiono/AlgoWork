@@ -27,7 +27,7 @@ tree1 = {
     "PreOrder: " : tree1.preOrder(),
     "InOrder: " : tree1.inOrder(),
     "PostOrder: " : tree1.postOrder(),
-    "PrintAtLevel" : tree1.printAtLvl(1),
+    "PrintAtLevel" : tree1.printAtLvl(3),
     // "LevelOrder: " : tree1.levelOrder(),
     // "Min_Height: " : tree1.minHeight(),
     // "Max_Height: " : tree1.maxHeight(),

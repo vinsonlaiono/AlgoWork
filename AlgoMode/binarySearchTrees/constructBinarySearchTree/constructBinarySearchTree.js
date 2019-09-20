@@ -285,24 +285,19 @@ let traverse = function (tree, target, closest) {
 // 
 
 BST.prototype.printAtLvl = function(lvl){
-    console.log("In print at lvl" + 2)
-    let q = [this.root];
-    let count = 1
-    if(lvl === 1){
-        return q[0].val
-    } else {
-
-        while(count != lvl){
-            let curr = q.pop();
-
-
-        }
-        return `print at level ${lvl} and ${this.head}`
+    var result = [];
+    var Q = [];
+    let count = 0;
+    Q.push(this.root )
+    while (Q.length) {
+        let node = Q.shift();
+        result.push(node.val);
+        node.left && Q.push(node.left)
+        node.right && Q.push(node.right)
+        count++;
     }
-}
-
-BST.prototype.BFS = function () {
-    console.log("In BFS")
+    return result;
+    
 }
 
 exports.BST = BST;
