@@ -1,23 +1,30 @@
 
-// (({}()))
+// (({}())
 
 function balancedBracket(str){
     console.log(str);
-    let brackets = {};
+    let brackets = {
+        "{": 0,
+        "(": 0,
+        "[": 0,
+    };
     for(let i=0; i < str.length; i++){
-        if(str[i] in brackets){
+        if(str[i] === '{' || str[i] === '(' || str[i] === '['){
             brackets[str[i]]++;
         } else {
-            brackets[str[i]] = 1;
+            if( str[i]==='}') brackets['{']--;
+            if( str[i]===')') brackets['(']--;
+            if( str[i]===']') brackets['[']--;
         }
-        if(str[i] === '}'){brackets['{']--;}
-        if(str[i] === ')'){brackets['(']--;}
-        if(str[i] === ']'){brackets['[']--;}
     }
-    if(brackets['}'] === 0 || brackets['['] === 0 || brackets['('] === 0){
+    if(brackets['{'] === 0 && brackets['['] === 0 && brackets['('] === 0){
         return true;
     }
     return false;
 }
 
-console.log(balancedBracket('(({}()))('));
+console.log(balancedBracket('(())()(({}()))'));
+console.log(balancedBracket('('));
+console.log(balancedBracket('()'));
+console.log(balancedBracket('()()'));
+console.log(balancedBracket(')('));
