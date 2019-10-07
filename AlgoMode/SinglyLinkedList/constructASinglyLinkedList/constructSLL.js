@@ -1,7 +1,5 @@
 // Construct a singly Linked List
 
-// Construct a singly Linked List
-
 class Node{
     constructor(value){
         this.val = value;

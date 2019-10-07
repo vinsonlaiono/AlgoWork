@@ -17,6 +17,10 @@ function balancedBracket(str){
             if( str[i]===']') brackets['[']--;
         }
     }
+    return checkBrackets(brackets);
+}
+
+function checkBrackets(brackets){
     if(brackets['{'] === 0 && brackets['['] === 0 && brackets['('] === 0){
         return true;
     }
