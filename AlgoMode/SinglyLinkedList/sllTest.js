@@ -17,3 +17,4 @@ test1.print();
 console.log(test1.max())
 console.log(test1.min())
 console.log(test1.average())
+console.log(test1.contains(4))

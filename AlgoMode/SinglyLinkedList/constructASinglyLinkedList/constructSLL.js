@@ -146,6 +146,16 @@ SLL.prototype.reverse = function(){
     }
 }
 
+SLL.prototype.contains = function(value){
+    let node = this.head;
+    while(node !== null) {
+        if(node.val === value){
+            return true;
+        }
+        node = node.next;
+    }
+    return false;
+}
 
 SLL.prototype.max = function(){
     let curr = -Infinity;
