@@ -6,6 +6,11 @@ const program = require('./constructASinglyLinkedList/constructSLL');
 // print() prints all values
 // getLength() returns the length of the list
 // reverse() reverse linked list
+// max() returns max value in list
+// min() reutrn min value in list
+// avgerage() returns the average of all values in the list;
+// contains() returns boolean if given value is contained in the list
+
 
 let test1 = new program.SLL();
 let arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
