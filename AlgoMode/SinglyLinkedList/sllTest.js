@@ -8,11 +8,12 @@ const program = require('./constructASinglyLinkedList/constructSLL');
 // reverse() reverse linked list
 
 let test1 = new program.SLL();
-let arr = [];
+let arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 
 // test1.insertAt(45, 0);
-test1.create(arr);
-test1.removeAt(0)
+test1.create([]);
+// test1.removeAt(0)
 test1.print();
-test1.reverse();
-test1.print();
+console.log(test1.max())
+console.log(test1.min())
+console.log(test1.average())

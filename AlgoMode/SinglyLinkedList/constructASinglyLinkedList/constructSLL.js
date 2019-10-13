@@ -154,16 +154,16 @@ SLL.prototype.max = function(){
         curr = Math.max(curr, runner.val)
         runner = runner.next
     }
-    return curr
+    return curr === -Infinity ? 'max error' : curr;
 }
 SLL.prototype.min = function(){
     let curr = Infinity;
     let runner = this.head;
     while(runner){
-        curr = Math.min(curr, runner.val)
-        runner = runner.next
+        curr = Math.min(curr, runner.val);
+        runner = runner.next;
     }
-    return curr
+    return curr === Infinity ? 'min error' : curr;
 }
 SLL.prototype.average = function(){
     let sum = 0;
@@ -172,7 +172,7 @@ SLL.prototype.average = function(){
         sum += runner.val;
         runner = runner.next;
     }
-    return sum/this.length();
+    return sum === 0 ? 'empty' : sum/this.getLength();
 }
 
 function printErrors(){
