@@ -70,8 +70,6 @@
                     if(curr.val > max){
                         max = runner
                         runner = runner.next
-                        console.log(runner.val)
-                        console.log(curr.val)
                     } else {
                         runner = runner.next
                     }
@@ -90,7 +88,35 @@
         }
         SLL.prototype.printVals = function() {
             var runner = this.head;
-            console.log(runner.next.val)
+            while(runner){
+                console.log(runner.val)
+                runner = runner.next;
+            }
+        }
+
+        SLL.prototype.moveToBack = function(value){
+            if(!this.head){
+                return -1
+            } else {
+                let runner = this.head;
+                let temp = null;
+                let isHead = false;
+                while(runner.next != null){
+                    if(this.head.val === value) isHead = true;
+                    if(runner.next.val == value) temp = runner;
+                    runner = runner.next;
+                }
+
+                if(isHead == true){
+                    runner.next = this.head;
+                    this.head = this.head.next;
+                    runner.next.next=null;
+                    return
+                }
+                runner.next = temp.next;
+                temp.next = temp.next.next;
+                runner.next.next = null;
+            }
         }
 
         let mySll = new SLL();
@@ -111,6 +137,7 @@
         // console.log("Remove node at index 2: ", sll.kthNode(2));
         // mySll.moveMax();
         // sll.rotate();
+        mySll.moveToBack(1)
         mySll.printVals();
 
     </script>    

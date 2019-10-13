@@ -1,21 +1,14 @@
-// Construct a singly Linked List
+// Construct an Singly Linked List
 
-class Node{
-    constructor(value){
-        this.val = value;
-        this.next = null;
-    }
-}
 class SLL{
     constructor(){
         this.head = null;
     }
 }
-SLL.prototype.setHead = function(node){
-    if(this.head === null) this.head = node;
-    else {
-        node.next = this.head;
-        this.head = node;
+class Node{
+    constructor(value){
+        this.val = value;
+        this.next = null;
     }
 }
 SLL.prototype.print = function(){
@@ -145,38 +138,7 @@ SLL.prototype.reverse = function(){
         this.head = prev;
     }
 }
-
-
-SLL.prototype.max = function(){
-    let curr = -Infinity;
-    let runner = this.head;
-    while(runner){
-        curr = Math.max(curr, runner.val)
-        runner = runner.next
-    }
-    return curr
-}
-SLL.prototype.min = function(){
-    let curr = Infinity;
-    let runner = this.head;
-    while(runner){
-        curr = Math.min(curr, runner.val)
-        runner = runner.next
-    }
-    return curr
-}
-SLL.prototype.average = function(){
-    let sum = 0;
-    let runner = this.head;
-    while(runner){
-        sum += runner.val;
-        runner = runner.next;
-    }
-    return sum/this.length();
-}
-
 function printErrors(){
     console.log("reference error")
 }
 exports.SLL = SLL;
-
