@@ -10,10 +10,8 @@ var threeNumberSum = (arr, target) => {
                 triplets.push([arr[i], arr[left], arr[right]])
                 left++;
                 right--;
-            } else if (currentSum < target) {
-                left++;
-            } else if (currentSum > target) {
-                right--;
+            } else {
+                currentSum < target ? left++ : right--;
             }
         }
     }

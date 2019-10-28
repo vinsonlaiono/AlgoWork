@@ -14,18 +14,13 @@
             if (prices === null || prices.length === 0) {
                 return 0;
             }
-
             var profit = 0;
-
             for (var i = 1; i < prices.length; i++) {
                 var diff = prices[i] - prices[i - 1];
-                console.log("Difference is: " + diff)
                 if (diff > 0) {
-                    console.log("Profit is: " + profit)
                     profit += diff;
                 }
             }
-            console.log(profit)
             return profit;
         };
         maxProfit([1, 7, 5, 3, 6, 4])

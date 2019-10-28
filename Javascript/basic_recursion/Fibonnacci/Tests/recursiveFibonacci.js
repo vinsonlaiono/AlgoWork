@@ -13,7 +13,7 @@ var getNthFib = (n) => {
 
 // O(n) time | O(n) space -- Recursive
 var getNthFib = (n, hashMap = {1:0, 2:1}) => {
-    if(hashMap[n]){
+    if(n in hashMap){
         return hashMap[n];
     } else {
         hashMap[n] = getNthFib(n - 1, hashMap) + getNthFib(n - 2, hashMap);

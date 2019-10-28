@@ -2,7 +2,7 @@
 
 function bubbleSort(arr){
     for(let i=0; i < arr.length; i++){
-        for(let j=0; j < arr.length; j++){
+        for(let j=0; j < arr.length-i; j++){
             arr[j] > arr[j+1] && swap(arr, j)
         }
     }
@@ -15,4 +15,4 @@ function swap(arr, i){
     arr[i+1] = temp;
 }
 
-console.log(bubbleSort([4,10,2,6,5,1,3,9,8,7]))
+console.log(bubbleSort([4,10,2,6,5,1,3,9,8,7, 11]))
