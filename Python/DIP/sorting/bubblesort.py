@@ -1,3 +1,5 @@
+# bubblesort
+
 def bubblesort(arr):
     isSorted = False
     count = 0
@@ -9,7 +11,7 @@ def bubblesort(arr):
                 isSorted = False
         count += 1
     return arr   
-         
-print([4,2,3,1,7,4,6,5])
-print(bubblesort([4,2,3,1,7,4,6,5]))
+
+print([4,2,3,1,7,4,6,6,6,3,3,5])
+print(bubblesort([4,2,3,1,7,4,6,6,6,3,3,5]))
     

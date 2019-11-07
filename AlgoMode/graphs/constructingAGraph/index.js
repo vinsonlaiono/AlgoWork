@@ -14,9 +14,10 @@ Node.prototype.BFS = function(){
     while(q.length > 0){
         let curr = q.shift();
         results_array.push(curr.val)
-        for( let child of curr.children){
+        for(let child of curr.children){
             q.push(child)
         }
     }
     return results_array;
 }
+
