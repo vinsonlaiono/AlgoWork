@@ -17,11 +17,12 @@ tree2.insert(20).insert(15).insert(10).insert(18).insert(19)
 //      10   18   22    27                   10     18        
 //     /            \     \                           \
 //    5              23    30                          19  
-//                        /  \
-//                       32   40
+//                           \
+//                            40
 //                           /  \
-//                          35   45
-
+//                          32   45
+//                            \
+//                             35
 tree1 = {
     "Contains" : tree1.contains(22),
     "PreOrder: " : tree1.preOrder(),

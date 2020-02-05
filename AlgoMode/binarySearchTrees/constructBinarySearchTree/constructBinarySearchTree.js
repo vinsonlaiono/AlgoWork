@@ -297,7 +297,29 @@ BST.prototype.printAtLvl = function(lvl){
         count++;
     }
     return result;
-    
+}
+
+BST.prototype.branchSums = function() {
+    const sums = [];
+    calculatBranchSums(this.root, 0, sums)
+    console.log(`The sums answer: ${sums}`);
+
+    return sums;
+
+    function calculatBranchSums(node, runningSum, sums){
+        // console.log(`In the calculate function ${sums}`)
+        if(!node) return;
+        console.log(`Current node being looked at ${node.val}`)
+        const newSum = node.val + runningSum;
+        if(!node.left && !node.right){
+            console.log(`new Sum being pushed: ${newSum}`)
+            sums.push(newSum);
+            return;
+        }
+        calculatBranchSums(node.left, newSum, sums);
+        calculatBranchSums(node.right, newSum, sums);
+        return sums
+    }
 }
 
 exports.BST = BST;
